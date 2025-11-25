@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe - Tienda de Ropa Solidaria</title>
+<style>
+body { margin: 0; font-family: Arial, sans-serif; background: #faf7e8; }
+
+/* HEADER Y NAV */
+header { background: #b30000; padding: 15px; color: white; text-align: center; }
+nav { background: #e63946; display: flex; justify-content: center; flex-wrap: wrap; padding: 10px; }
+nav a { color: white; margin: 5px 20px; text-decoration: none; font-weight: bold; }
+
+/* SLIDER INICIO */
+.slider-container { position: relative; max-width: 1000px; margin: 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);}
+.slider { display: flex; transition: transform 0.5s ease-in-out; }
+.slide { min-width: 100%; position: relative; text-align: center; }
+.slide img { width: 100%; height: 400px; object-fit: cover; border-radius: 10px; }
+.slide button { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); background: #d62828; color: white; border: none; padding: 12px 25px; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background 0.3s;}
+.slide button:hover { background: #b30000; }
+.prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 30px; padding: 10px; border-radius: 50%; cursor: pointer;}
+.prev { left: 10px; }
+.next { right: 10px; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+
+/* CATALOGO */
+.catalogo { padding: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; }
+.producto { background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.3s; }
+.producto:hover { transform: scale(1.03); }
+.producto img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; }
+.producto button { background: #d62828; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer; width: 100%; transition: background 0.3s; }
+.producto button:hover { background: #b30000; }
+
+/* SERVICIOS */
+.servicios { padding: 30px; background: #f4f1ea; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: center; }
+.servicio-item { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.3s;}
+.servicio-item:hover { transform: scale(1.05);}
+.servicio-item h3 { margin-top: 15px; color: #b30000; }
+
+/* CONTACTENOS */
+.contacto { padding: 30px; background: #faf7e8; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+.contacto form { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.15); flex: 1 1 300px; max-width: 500px; display: flex; flex-direction: column; }
+.contacto form input, .contacto form textarea { margin-bottom: 15px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; }
+.contacto form button { background: #d62828; color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s; }
+.contacto form button:hover { background: #b30000; }
+
+/* CARRITO */
+#carrito-container { background: white; padding: 20px; margin: 20px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.15); }
+
+/* FOOTER */
+footer { text-align: center; padding: 15px; background: #b30000; color: white; margin-top: 30px; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Luxe - Tienda de Ropa Solidaria</h1>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contáctenos</a>
+    <a href="#carrito-container">Carrito</a>
+</nav>
+
+<!-- SLIDER INICIO -->
+<section id="inicio">
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://www.escueladesarts.com/wp-content/uploads/moda-casual.jpg" alt="Ropa casual">
+                <button onclick="location.href='#catalogo'">Ver Catálogo Casual</button>
+            </div>
+            <div class="slide">
+                <img src="https://media.istockphoto.com/id/1338720994/es/foto/mujer-madura-de-mediana-edad-con-cabello-rubio-con-gafas-de-sol-caminando-por-las-calles-de-la.jpg?s=612x612&w=0&k=20&c=mpBLHxVliJOfFgQuIk3AW2gbrT-PQcjdZzEBXURmBcw=" alt="Ropa elegante">
+                <button onclick="location.href='#catalogo'">Ver Catálogo Elegante</button>
+            </div>
+            <div class="slide">
+                <img src="https://media.istockphoto.com/id/2098119711/es/foto/mujer-almacenando-ropa-limpia-en-cajones.jpg?s=612x612&w=0&k=20&c=u_ZFp5EkvMFva4hkBu5Rc9gPVctD647sewMKvGUcLzY=" alt="Ropa de hogar">
+                <button onclick="location.href='#catalogo'">Ver Catálogo Hogar</button>
+            </div>
+            <div class="slide">
+                <img src="https://audaces.com/wp-content/uploads/2024/11/como-disenar-ropa-deportiva-tecnicas-min-1024x694.webp" alt="Ropa deportiva">
+                <button onclick="location.href='#catalogo'">Ver Catálogo Deportivo</button>
+            </div>
+        </div>
+        <button class="prev" onclick="moverSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moverSlide(1)">&#10095;</button>
+    </div>
+</section>
+
+<!-- CATALOGO -->
+<section id="catalogo" class="catalogo">
+    <div class="producto">
+        <img src="https://i.pinimg.com/474x/9e/08/60/9e0860004cdecff41f7890cb08ffe759.jpg" alt="Producto 1">
+        <h3>Camiseta Roja</h3>
+        <p>Precio: 25 Bs.</p>
+        <button onclick="agregarCarrito('Camiseta Roja', 25)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="https://img.freepik.com/fotos-premium/mujer-camisa-blanca-que-dice-soy-duende-ella_891936-170.jpg" alt="Producto 2">
+        <h3>Camiseta Blanca</h3>
+        <p>Precio: 30 Bs.</p>
+        <button onclick="agregarCarrito('Camiseta Blanca', 30)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="https://m.media-amazon.com/images/I/71SvQnH7OaL._UF1000,1000_QL80_.jpg?odnHeight=117&odnWidth=117&odnBg=FFFFFF" alt="Producto 3">
+        <h3>Camiseta Negra</h3>
+        <p>Precio: 28 Bs.</p>
+        <button onclick="agregarCarrito('Camiseta Negra', 28)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFc7pEfRhXTpNd8k54lp408ub7TelBM9WH5w&s" alt="Producto 4">
+        <h3>Camiseta Azul</h3>
+        <p>Precio: 26 Bs.</p>
+        <button onclick="agregarCarrito('Camiseta Azul', 26)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+        <img src="https://lukshop.vtexassets.com/arquivos/ids/991591/36_103G021_CAF191314_0.jpg?v=638875005098430000" alt="Producto 5">
+        <h3>Camiseta Estampada</h3>
+        <p>Precio: 35 Bs.</p>
+        <button onclick="agregarCarrito('Camiseta Estampada', 35)">Agregar al carrito</button>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios">
+    <div class="servicio-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" width="80" alt="Envio">
+        <h3>Envío Gratuito</h3>
+        <p>En compras mayores a 200 Bs. dentro del país.</p>
+    </div>
+    <div class="servicio-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910763.png" width="80" alt="Devolucion">
+        <h3>Devolución Fácil</h3>
+        <p>Si no estás satisfecho, devolvemos tu dinero.</p>
+    </div>
+    <div class="servicio-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/3523/3523063.png" width="80" alt="Atencion">
+        <h3>Atención 24/7</h3>
+        <p>Estamos disponibles para ayudarte en cualquier momento.</p>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+    <form onsubmit="alert('Mensaje enviado'); return false;">
+        <h3>Contáctanos</h3>
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <textarea placeholder="Mensaje" rows="5" required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+</section>
+
+<!-- CARRITO -->
+<div id="carrito-container">
+    <h2>Carrito de Compras</h2>
+    <ul id="carrito"></ul>
+    <h3 id="total"></h3>
+</div>
+
+<footer>
+    © 2025 Luxe - Tienda de Ropa Solidaria
+</footer>
+
+<script>
+// Slider
+let indiceSlide = 0;
+const slides = document.querySelectorAll('.slide');
+function mostrarSlide(n){
+    if(n >= slides.length) indiceSlide = 0;
+    if(n < 0) indiceSlide = slides.length -1;
+    document.querySelector('.slider').style.transform = `translateX(-${indiceSlide*100}%)`;
+}
+function moverSlide(n){ indiceSlide+=n; mostrarSlide(indiceSlide); }
+setInterval(()=>{ indiceSlide++; mostrarSlide(indiceSlide); },5000);
+
+// Carrito
+let carrito = [];
+let total = 0;
+function agregarCarrito(nombre, precio){
+    carrito.push({nombre, precio});
+    total += precio;
+    actualizarCarrito();
+}
+function actualizarCarrito(){
+    const lista = document.getElementById("carrito");
+    lista.innerHTML = "";
+    carrito.forEach(item=>{
+        const li = document.createElement("li");
+        li.textContent = `${item.nombre} - ${item.precio} Bs.`;
+        lista.appendChild(li);
+    });
+    document.getElementById("total").textContent = "Total: " + total + " Bs.";
+}
+</script>
+</body>
+</html>
